@@ -14,22 +14,22 @@ public class UserController {
     private UserRepo userRepo;
 
     @PostMapping("")
-    public User createUser(@RequestBody User user){
+    public User createUser(@RequestBody User user) {
         return userRepo.save(user);
     }
 
     @GetMapping
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return userRepo.findAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<User> getUser(@PathVariable String id){
+    public Optional<User> getUser(@PathVariable String id) {
         return userRepo.findById(id);
     }
 
     @PutMapping("/{id}")
-    public void updateUser(@PathVariable String id, @RequestBody User user){
+    public void updateUser(@PathVariable String id, @RequestBody User user) {
         User currentUser = userRepo.findById(id).orElseThrow();
         currentUser.setName(user.getName());
         currentUser.setSurname(user.getSurname());
@@ -37,7 +37,7 @@ public class UserController {
     }
 
     @DeleteMapping
-    public void deleteUser(){
+    public void deleteUser() {
         userRepo.deleteAll();
     }
 
