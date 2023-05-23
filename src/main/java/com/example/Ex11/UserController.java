@@ -42,9 +42,9 @@ public class UserController {
         userRepo.save(currentUser);
     }
 
-    @DeleteMapping
-    public void deleteUser() {
-        userRepo.deleteAll();
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable String id) {
+        userRepo.deleteById(id);
     }
 
 
